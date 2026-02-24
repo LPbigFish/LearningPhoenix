@@ -1,8 +1,7 @@
 defmodule ShopWeb.ProductJSON do
-  def index(_assings) do
-    %{data: [
-      %{name: "GG"},
-      %{name: "Mogged"}
-    ]}
+  def index(%{products: products}) do
+    %{
+      data: products
+    }
   end
 end
