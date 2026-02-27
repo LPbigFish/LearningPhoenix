@@ -29,13 +29,15 @@ defmodule ShopWeb.Router do
 
     get "/random", RandomController, :random
 
-    get "/products/:id", ProductController, :show
+    get "/products/:slug", ProductController, :show
 
     #resources "/products", ProductController, only: [:index, :show]
 
     #resources "/users", UserController do
     #  resources "/posts", PostsController, only: [:index]
     #end
+
+    resources "/promotions", PromotionController
   end
 
   # Other scopes may use custom stacks.

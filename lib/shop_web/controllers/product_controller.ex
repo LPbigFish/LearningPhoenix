@@ -1,20 +1,18 @@
 defmodule ShopWeb.ProductController do
   use ShopWeb, :controller
 
-  @products [
-      %{id: "1", name: "God of War"},
-      %{id: "2", name: "Overwatch"},
-      %{id: "3", name: "Forza 4 Horizon"}
-    ]
+  alias Shop.Products
 
   def index(conn, _params) do
+    products = Products.get_products()
+
     conn
-      |> assign(:products, @products)
+      |> assign(:products, products)
       |> render(:index)
   end
 
-  def show(conn, %{"id" => id}) do
-    prod = Enum.find(@products, fn x -> x.id == id end)
+  def show(conn, %{"slug" => slug}) do
+    prod = Products.find_product_by_slug(slug)
     conn
       |> assign(:product, prod)
       |> render(:show)
