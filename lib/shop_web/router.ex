@@ -45,6 +45,8 @@ defmodule ShopWeb.Router do
     pipe_through :api
 
     get "/products", ApiController, :index
+
+    resources "/promotions", PromotionController, except: [:new, :edit]
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
