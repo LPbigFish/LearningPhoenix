@@ -22,3 +22,4 @@ defmodule ShopWeb.FallbackController do
     |> render(:"404")
   end
 end
+mix
